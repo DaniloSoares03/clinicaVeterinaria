@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <title>Sem título</title>
+    </h:head>
+    <h:body > 
+        <h:panelGrid columns="2" style="width: 100%; text-align: right;">
+            <h:form id="formVoltar" >                   
+                <p:commandLink  action="menu" value="Voltar ao menu" />
+            </h:form>
+        </h:panelGrid>
+
+        <p:fieldset legend="Novo Tutor" toggleable="true"  collapsed="true" >
+            <h:form id="formNovo" >
+                <h:panelGrid columns="2">
+                    
+                    <h:outputLabel value="CPF" />
+                    <p:inputText id="cpf" 
+                                 value="#{gerenciarTutorControle.tutor.cpf}"/>
+                    
+                     <h:outputLabel value="Nome:  " />
+                     <p:inputText value="#{gerenciarTutorControle.tutor.nome}"/>
+                     
+                     <h:outputLabel value="Endereço  " />
+                     <p:inputText value="#{gerenciarTutorControle.tutor.endereco}"/>
+                     
+                     <h:outputLabel value="Telefone  " />
+                     <p:inputText value="#{gerenciarTutorControle.tutor.telefone}"/>
+                     
+                     <p:calendar id="data" pattern="dd/MM/yyyy"
+                                value="#{gerenciarTutorControle.tutor.dataNascimento}" 
+                                required="true" requiredMessage="Data obrigatória"
+                                showOn="button"
+                                locale="pt"/>
+                     
+                    <p:commandButton value="salvar" 
+                                     action="#{gerenciarTutorControle.salvar()}"
+                                     />
+                     
+                </h:panelGrid>  
+            </h:form>
+            
+        </p:fieldset>
+    </h:body>
+</html>
